@@ -7,3 +7,5 @@ pythonenv3.8
 test/
 **.DS_Store
 .vscode
+venv/
+.idea/
