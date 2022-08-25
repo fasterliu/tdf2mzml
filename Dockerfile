@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 LABEL name="tdf2mzml"
 LABEL version="0.1"
