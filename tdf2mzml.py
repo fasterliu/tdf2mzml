@@ -43,6 +43,18 @@ precursor_columns = [
         ]
 
 
+def display_logo():
+    logging.info("******************************************")
+    logging.info("  ____  _____  _    _ _  ________ _____  ")
+    logging.info(" |  _ \\|  __ \\| |  | | |/ /  ____|  __ \\ ")
+    logging.info(" | |_) | |__) | |  | | ' /| |__  | |__) |")
+    logging.info(" |  _ <|  _  /| |  | |  < |  __| |  _  / ")
+    logging.info(" | |_) | | \\ \\| |__| | . \\| |____| | \\ \\ ")
+    logging.info(" |____/|_|  \\_\\\\____/|_|\\_\\______|_|  \\_\\")
+    logging.info("******************************************")
+    logging.info("TDF Data To mzML Converter, v{}.{}".format(MAJOR_VERSION, MINOR_VERSION))
+
+
 def timing(f):
     """
     Helper function for timing other functions
@@ -1157,6 +1169,15 @@ def main():
     -------
     None
     """
+
+    logging.basicConfig(
+        format='[%(asctime)s %(levelname)-4s] %(message)s',
+        level=logging.INFO,
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+
+    display_logo()
+
     # Argument Parser
     parser = argparse.ArgumentParser(description="tdf2mzml")
 
@@ -1252,7 +1273,7 @@ def main():
     args = parser.parse_args()
 
     if args.output == None:
-        args.output = os.path.normpath(re.sub('d[/]?$', 'mzml', args.input))
+        args.output = os.path.normpath(re.sub('d[/]?$', 'mzML', args.input))
 
     if args.debug:
         logging.basicConfig(level=logging.DEBUG)
