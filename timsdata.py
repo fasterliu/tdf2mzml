@@ -8,6 +8,7 @@ from ctypes import *
 
 if sys.platform[:5] == "win32":
     libname = "timsdata.dll"
+    os.add_dll_directory(os.path.dirname(os.path.realpath(__file__)))
 elif sys.platform[:5] == "linux":
     libname = "libtimsdata.so"
 else:
